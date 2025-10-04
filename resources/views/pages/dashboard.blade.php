@@ -5,8 +5,10 @@
       <a href="/notes" class="p-2 rounded-md inline-block border border-gray-300 bg-white hover:bg-gray-100">
         View All Notes</a>
     </div>
-    @for ($i = 0; $i < 6; $i++)
-      <x-note-card />
-    @endfor
+    @forelse ($notes as $note)
+      <x-note-card :note="$note" />
+    @empty
+      <p class="text-gray-500">No recent notes available.</p>
+    @endforelse
   </div>
 </x-layout>
