@@ -1,9 +1,7 @@
 <x-layout>
   <div class="container mx-auto p-4">
-    <div class="heading text-xl font-medium">Your Notes</div>
-    <div class="sub-heading text-gray-500 mb-4">6 notes</div>
-    @for ($i = 0; $i < 6; $i++)
-      <x-note-card />
-    @endfor
+    <h1 class="text-3xl font-bold mb-4">Welcome to Noteful</h1>
+    <p class="mb-4">Your personal note-taking application.</p>
+    <a href="{{ route('notes.index') }}" class="text-blue-500 hover:underline">View Your Notes</a>
   </div>
 </x-layout>
