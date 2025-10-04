@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\Note;
 
@@ -21,17 +22,22 @@ class NoteController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('notes.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $title = $request->input('title');
+        $description = $request->input('description');
+
+        Note::create(['title' => $title, 'description' => $description]);
+
+        return redirect()->route('notes.index');
     }
 
     /**
