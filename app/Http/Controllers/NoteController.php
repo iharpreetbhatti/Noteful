@@ -32,10 +32,12 @@ class NoteController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $title = $request->input('title');
-        $description = $request->input('description');
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
 
-        Note::create(['title' => $title, 'description' => $description]);
+        Note::create(['title' => $validatedData['title'], 'description' => $validatedData['description']]);
 
         return redirect()->route('notes.index');
     }
