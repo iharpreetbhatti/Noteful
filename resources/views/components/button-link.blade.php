@@ -7,8 +7,7 @@
     'responsive' => false,
 ])
 
-<a href="{{ $url }}"
-  class="flex items-center gap-2 p-2 rounded-md text-sm {{ $bgColor }} {{ $textColor }}">
+<a href="{{ $url }}" class="p-2 rounded-md text-sm {{ $bgColor }} {{ $textColor }}">
   @if ($icon)
     <i class="{{ $icon }}"></i>
   @endif
