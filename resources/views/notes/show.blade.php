@@ -5,8 +5,14 @@
     <div class="flex items-center gap-4">
       <x-button-link :url="route('notes.edit', $note->id)" text="Edit Note" icon="fa-solid fa-pen-to-square"
         bgColor="bg-black hover:bg-gray-800" textColor="text-white" />
-      <x-button-link :url="route('notes.destroy', $note->id)" text="Edit Note" icon="fa-solid fa-trash" bgColor="bg-red-500 hover:bg-red-700"
-        textColor="text-white" />
+      <form action="{{ route('notes.destroy', $note->id) }}" method="POST" class="inline">
+        @csrf
+        @method('DELETE')
+        <button type="submit"
+          class="bg-red-500 hover:bg-red-700 text-white p-2 rounded-md text-sm w-full cursor-pointer "><i
+            class="fa-solid fa-trash"></i>
+          Delete Note</button>
+      </form>
     </div>
 
   </div>
