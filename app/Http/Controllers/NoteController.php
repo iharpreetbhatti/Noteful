@@ -37,7 +37,9 @@ class NoteController extends Controller
             'description' => 'required|string',
         ]);
 
-        Note::create(['title' => $validatedData['title'], 'description' => $validatedData['description']]);
+        $validatedData['user_id'] = 1; // Temporary hardcoded user ID
+
+        Note::create($validatedData);
 
         return redirect()->route('notes.index');
     }
