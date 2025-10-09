@@ -1,8 +1,7 @@
 <x-layout>
-  <div class="container mx-auto p-4">
-
+  <div class="container mx-auto p-4 grid lg:grid-cols-3 sm:grid-cols-2 gap-4">
     @forelse ($notes as $note)
-      <a href="{{ route('notes.show', $note->id) }}">
+      <a href="{{ route('notes.show', $note->id) }}" class="">
         <x-note-card :note="$note" />
       </a>
     @empty
