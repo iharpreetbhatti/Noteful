@@ -1,0 +1,18 @@
+@props([
+    'icon' => null,
+    'text' => '',
+    'url' => '#',
+    'bgColor' => '',
+    'textColor' => '',
+    'responsive' => false,
+])
+
+<a href="{{ $url }}"
+  class="flex items-center gap-2 p-2 rounded-md text-sm {{ $bgColor }} {{ $textColor }}">
+  @if ($icon)
+    <i class="{{ $icon }}"></i>
+  @endif
+  @if ($text)
+    <span class="{{ $responsive ? 'hidden lg:inline' : '' }}">{{ $text }}</span>
+  @endif
+</a>
