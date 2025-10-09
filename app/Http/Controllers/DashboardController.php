@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Note;
 use Illuminate\Http\Request;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 
 class DashboardController extends Controller
 {
