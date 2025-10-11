@@ -1,4 +1,4 @@
-<header class="bg-white border-b border-gray-300 mb-4">
+<header class="bg-white border-b border-gray-300">
   <div class="container mx-auto p-4 flex justify-between items-center">
     <a href="/" class="font-bold text-2xl"><i class="fa-regular fa-file-lines"></i> Noteful</a>
     <div class="flex items-center gap-2">
