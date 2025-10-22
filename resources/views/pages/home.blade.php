@@ -6,4 +6,5 @@
     subHeading="See what people are saying about Noteful">
     <x-testimonials />
   </x-section-layout>
+  <x-bottom-banner />
 </x-home-layout>
