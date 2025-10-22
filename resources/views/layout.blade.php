@@ -13,7 +13,7 @@
   @vite('resources/css/app.css')
 </head>
 
-<body class="bg-gray-100 min-h-screen">
+<body>
   <x-header />
 
   @if (session('success'))
@@ -22,6 +22,7 @@
   @if (session('error'))
     <x-alert type="error" message="{{ session('error') }}" />
   @endif
+
   {{ $slot }}
 
 </body>

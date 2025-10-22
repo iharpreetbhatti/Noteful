@@ -12,6 +12,6 @@
     <i class="{{ $icon }}"></i>
   @endif
   @if ($text)
-    <span class="{{ $responsive ? 'hidden lg:inline' : '' }}">{{ $text }}</span>
+    <span class="{{ $responsive ? 'hidden' : '' }} md:inline">{{ $text }}</span>
   @endif
 </a>
