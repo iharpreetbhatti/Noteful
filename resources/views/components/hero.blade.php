@@ -1,9 +1,9 @@
 @props(['hook', 'lead'])
 
 <section class="hero container mx-auto py-16 px-4 text-center">
-  <h1 class="hook text-5xl font-bold bg-gradient-to-r from-gray-900 to-blue-600 bg-clip-text text-transparent mb-6">
+  <h1 class="hook text-6xl font-bold bg-gradient-to-r from-gray-900 to-blue-600 bg-clip-text text-transparent mb-6">
     {{ $hook }}</h1>
-  <p class="lead text-xl text-gray-500 mb-6">{{ $lead }}</p>
+  <p class="lead text-2xl text-gray-500 mb-6">{{ $lead }}</p>
 
   <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
     <a href="#"
