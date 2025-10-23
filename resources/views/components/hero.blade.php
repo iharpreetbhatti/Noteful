@@ -6,11 +6,11 @@
   <p class="lead text-2xl text-gray-500 mb-6">{{ $lead }}</p>
 
   <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
-    <a href="#"
+    <a href="/register"
       class="py-2 px-4 rounded-md bg-black hover:bg-gray-900 text-white font-medium text-md text-center w-full sm:w-auto">
       Get Started Free
     </a>
-    <a href="#"
+    <a href="/login"
       class="py-2 px-4 rounded-md bg-white text-black hover:bg-gray-100 border border-gray-200 font-medium text-md text-center w-full sm:w-auto">
       Sign In
     </a>
