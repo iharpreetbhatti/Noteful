@@ -14,7 +14,9 @@
 </head>
 
 <body>
-  <x-header />
+  @if (!request()->is('register') && !request()->is('login'))
+    <x-header />
+  @endif
 
   @if (session('success'))
     <x-alert type="success" message="{{ session('success') }}" />
