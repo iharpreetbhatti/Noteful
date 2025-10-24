@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Note;
 
 class NoteController extends Controller
@@ -14,7 +15,8 @@ class NoteController extends Controller
      */
     public function index(): View
     {
-        $notes = Note::all();
+        $user = auth()->user();
+        $notes = $user->notes()->get();
         return view("notes.index")->with('notes', $notes);
 
     }
@@ -37,7 +39,7 @@ class NoteController extends Controller
             'description' => 'required|string',
         ]);
 
-        $validatedData['user_id'] = 1; // Temporary hardcoded user ID
+        $validatedData['user_id'] = auth()->user()->id;
 
         Note::create($validatedData);
 
