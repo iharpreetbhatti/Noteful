@@ -14,12 +14,21 @@ class NoteSeeder extends Seeder
      */
     public function run(): void
     {
+        // Load notes from a separate data file
         $notes = include(database_path('seeders/data/notes.php'));
 
-        $userIds = User::pluck('id')->toArray();
+        // Get ID of the user created by TestUserSeeder
+        $testUserId = User::where('email', 'test@test.com')->value('id');
 
-        foreach ($notes as &$note) {
-            $note['user_id'] = $userIds[array_rand($userIds)];
+        // Get all other user IDs
+        $userIds = User::where('email', '!=', 'test@test.com')->pluck('id')->toArray();
+
+        foreach ($notes as $index => &$note) {
+            if ($index < 2) {
+                $note['user_id'] = $testUserId;
+            } else {
+                $note['user_id'] = $userIds[array_rand($userIds)];
+            }
             $note['created_at'] = now();
             $note['updated_at'] = now();
         }

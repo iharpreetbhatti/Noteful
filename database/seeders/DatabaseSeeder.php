@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         DB::table("notes")->truncate();
         DB::table("users")->truncate();
 
+        $this->call(TestUserSeeder::class);
         $this->call(RandomUserSeeder::class);
         $this->call(NoteSeeder::class);
     }
