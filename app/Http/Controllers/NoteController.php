@@ -6,10 +6,13 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\Models\Note;
 
 class NoteController extends Controller
 {
+    use AuthorizesRequests;
+
     /**
      * Display a listing of the resource.
      */
@@ -51,6 +54,7 @@ class NoteController extends Controller
      */
     public function show(Note $note): View
     {
+        $this->authorize('view', $note);
         return view('notes.show', compact('note'));
     }
 
@@ -59,6 +63,7 @@ class NoteController extends Controller
      */
     public function edit(Note $note): View
     {
+        $this->authorize('update', $note);
         return view('notes.edit')->with('note', $note);
     }
 
@@ -67,6 +72,7 @@ class NoteController extends Controller
      */
     public function update(Request $request, Note $note): RedirectResponse
     {
+        $this->authorize('update', $note);
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
@@ -82,6 +88,7 @@ class NoteController extends Controller
      */
     public function destroy(Note $note): RedirectResponse
     {
+        $this->authorize('delete', $note);
         $note->delete();
         return redirect()->route('notes.index')->with('success', 'Note deleted successfully!');
     }
