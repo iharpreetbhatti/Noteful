@@ -18,10 +18,10 @@ class NoteSeeder extends Seeder
         $notes = include(database_path('seeders/data/notes.php'));
 
         // Get ID of the user created by TestUserSeeder
-        $testUserId = User::where('email', 'test@test.com')->value('id');
+        $testUserId = User::where('email', 'demo@noteful.com')->value('id');
 
         // Get all other user IDs
-        $userIds = User::where('email', '!=', 'test@test.com')->pluck('id')->toArray();
+        $userIds = User::where('email', '!=', 'demo@noteful.com')->pluck('id')->toArray();
 
         foreach ($notes as $index => &$note) {
             if ($index < 2) {
