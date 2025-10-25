@@ -1,4 +1,4 @@
-<div class="features-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-8">
+<div class="features-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
   @foreach ($featuresData as $feature)
     <div class="bg-white rounded-xl px-4 py-6 hover:shadow-lg transition-shadow duration-300 text-left"
       :key="feature - {{ $feature['id'] }}">
