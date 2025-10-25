@@ -2,12 +2,11 @@
     'icon' => null,
     'text' => '',
     'url' => '#',
-    'bgColor' => '',
-    'textColor' => '',
+    'classNames' => '',
     'responsive' => false,
 ])
 
-<a href="{{ $url }}" class="p-2 rounded-md text-sm {{ $bgColor }} {{ $textColor }}">
+<a href="{{ $url }}" class="{{ $classNames }} rounded-md text-center">
   @if ($icon)
     <i class="{{ $icon }}"></i>
   @endif
