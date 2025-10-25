@@ -4,16 +4,16 @@
     <div class="flex items-center gap-2">
       @auth
         <x-button-link icon="fa-regular fa-file" text="All Notes" url="{{ route('notes.index') }}"
-          bgColor="hover:bg-gray-200" />
+          classNames="py-2 px-4 text-sm hover:bg-gray-200" />
         <x-button-link icon="fa-solid fa-plus" text="New Note" url="{{ route('notes.create') }}" responsive="true"
-          bgColor="bg-black" textColor="text-white" />
-        <x-button-link icon="fa-solid fa-right-from-bracket" text="Logout" url="{{ route('logout') }}"
-          bgColor="hover:bg-gray-200" />
+          classNames="py-2 px-4 text-sm bg-black text-white" />
+        <x-button-link icon="fa-solid fa-right-from-bracket" text="Logout" url="{{ route('logout') }}" responsive="true"
+          classNames="py-2 px-4 text-sm hover:bg-gray-200" />
       @else
         <x-button-link icon="fa-solid fa-right-to-bracket" text="Sign In" url="{{ route('login') }}"
-          bgColor="hover:bg-gray-200" />
-        <x-button-link icon="fa-solid fa-user-plus" text="Sign Up" url="{{ route('register') }}" bgColor="bg-black"
-          textColor="text-white" />
+          classNames="py-2 px-4 text-sm hover:bg-gray-200" />
+        <x-button-link icon="fa-solid fa-user-plus" text="Sign Up" url="{{ route('register') }}"
+          classNames="py-2 px-4 text-sm bg-black text-white" />
       @endauth
     </div>
   </div>
