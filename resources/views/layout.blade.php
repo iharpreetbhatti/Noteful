@@ -18,15 +18,18 @@
     <x-header />
   @endif
 
-  @if (session('success'))
-    <x-alert type="success" message="{{ session('success') }}" />
-  @endif
-  @if (session('error'))
-    <x-alert type="error" message="{{ session('error') }}" />
-  @endif
+  <div
+    class="min-h-screen py-6 {{ request()->is('register') || request()->is('login') || request()->is('/') ? 'bg-gradient-to-br from-blue-50 to-indigo-100' : 'bg-gray-50' }}">
+    @if (session('success'))
+      <x-alert type="success" message="{{ session('success') }}" />
+    @endif
+    @if (session('error'))
+      <x-alert type="error" message="{{ session('error') }}" />
+    @endif
 
-  {{ $slot }}
+    {{ $slot }}
 
+  </div>
 </body>
 
 </html>
