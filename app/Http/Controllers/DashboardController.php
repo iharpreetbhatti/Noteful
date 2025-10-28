@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Carbon\Carbon;
 
@@ -10,8 +11,9 @@ class DashboardController extends Controller
 {
     public function index(): View
     {
+        $user = Auth::user();
         // Get first name of current user
-        $firstName = explode(' ', auth()->user()->name)[0];
+        $firstName = explode(' ', $user->name)[0];
 
         // Set start of week date
         $startOfWeek = Carbon::now()->startOfWeek();
@@ -20,10 +22,10 @@ class DashboardController extends Controller
         $endOfWeek = Carbon::now()->endOfWeek();
 
         // Get count of all notes of current user updated this week
-        $notesThisWeek = auth()->user()->notes()->whereBetween("updated_at", [$startOfWeek, $endOfWeek])->count();
+        $notesThisWeek = $user->notes()->whereBetween("updated_at", [$startOfWeek, $endOfWeek])->count();
 
         // Get count of total notes of current user
-        $totalNotes = auth()->user()->notes()->count();
+        $totalNotes = $user->notes()->count();
 
         // combine all stats into an associative array
         $stats = [
@@ -33,7 +35,7 @@ class DashboardController extends Controller
         ];
 
         // Get recent 6 notes of current user
-        $recentNotes = auth()->user()->notes()->latest()->limit(6)->get();
+        $recentNotes = $user->notes()->latest()->limit(6)->get();
 
         return view("pages.dashboard")
             ->with("firstName", $firstName)
