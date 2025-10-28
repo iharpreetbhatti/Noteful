@@ -8,8 +8,13 @@
         <x-button-link icon="fa-solid fa-plus" text="New Note" url="{{ route('notes.create') }}" responsive="true"
           classNames="py-2 px-4 text-sm bg-black text-white" />
         <div x-data="{ open: false }" class="relative">
-          <img @click="open = !open" src="https://avatar.iran.liara.run/public/9" alt="User Avatar"
-            class="w-10 h-10 rounded-full border border-gray-300 cursor-pointer ml-2" />
+          @if (auth()->user()->avatar)
+            <img @click="open = !open" src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="User Avatar"
+              class="w-10 h-10 rounded-full border border-gray-300 cursor-pointer ml-2" />
+          @else
+            <img @click="open = !open" src="{{ asset('storage/' . 'avatars/default-avatar.png') }}" alt="User Avatar"
+              class="w-10 h-10 rounded-full border border-gray-300 cursor-pointer ml-2" />
+          @endif
           <div x-show="open" @click.away="open = false"
             class="absolute top-0 right-0 mt-12 bg-white border border-gray-300 rounded shadow-lg flex flex-col items-center z-50">
             <a href="{{ route('dashboard') }}"

@@ -2,7 +2,13 @@
   <div class="md:w-xl mx-auto">
     <div class="bg-white rounded-xl border border-gray-200 p-8">
       <h1 class="text-center text-3xl font-semibold mb-12">Profile Info</h1>
-      <img src="https://avatar.iran.liara.run/public/9" alt="User Avatar" class="w-32 h-32 rounded-full mx-auto mb-6" />
+      @if (auth()->user()->avatar)
+        <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="User Avatar"
+          class="w-32 h-32 rounded-full mx-auto mb-6" />
+      @else
+        <img src="{{ asset('storage/' . 'avatars/default-avatar.png') }}" alt="User Avatar"
+          class="w-32 h-32 rounded-full mx-auto mb-6" />
+      @endif
       <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data"
         class="flex flex-col items-center">
         @csrf
