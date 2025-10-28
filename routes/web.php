@@ -31,5 +31,5 @@ Route::middleware('auth')->group(function () {
   Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
   Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-
+  Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });
