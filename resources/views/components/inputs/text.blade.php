@@ -7,7 +7,7 @@
     'class' => '',
 ])
 
-<input type="text" id="{{ $id }}" name="{{ $name }}" value="{{ $value }}"
+<input type="{{ $type }}" id="{{ $id }}" name="{{ $name }}" value="{{ $value }}"
   placeholder="{{ $placeholder }}" class="{{ $class }}" />
 
 <!-- Error Message for Title -->
