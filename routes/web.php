@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
@@ -28,5 +29,7 @@ Route::middleware('auth')->group(function () {
   Route::resource('notes', NoteController::class);
 
   Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+  Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
 });
