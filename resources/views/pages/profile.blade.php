@@ -3,7 +3,10 @@
     <div class="bg-white rounded-xl border border-gray-200 p-8">
       <h1 class="text-center text-3xl font-semibold mb-12">Profile Info</h1>
       <img src="https://avatar.iran.liara.run/public/9" alt="User Avatar" class="w-32 h-32 rounded-full mx-auto mb-6" />
-      <form class="flex flex-col items-center">
+      <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data"
+        class="flex flex-col items-center">
+        @csrf
+        @method('PUT')
         <x-inputs.text name="name" label="Name" value="{{ auth()->user()->name }}" class="mb-6 w-full"
           placeholder="Enter your name" />
         <x-inputs.text type="email" name="email" label="Email" value="{{ auth()->user()->email }}"
