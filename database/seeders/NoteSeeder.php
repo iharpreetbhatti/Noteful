@@ -24,7 +24,7 @@ class NoteSeeder extends Seeder
         $userIds = User::where('email', '!=', 'demo@noteful.com')->pluck('id')->toArray();
 
         foreach ($notes as $index => &$note) {
-            if ($index < 2) {
+            if ($index < 8) {
                 $note['user_id'] = $testUserId;
             } else {
                 $note['user_id'] = $userIds[array_rand($userIds)];
