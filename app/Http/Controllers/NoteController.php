@@ -19,7 +19,7 @@ class NoteController extends Controller
     public function index(): View
     {
         $user = auth()->user();
-        $notes = $user->notes()->get();
+        $notes = $user->notes()->paginate('12');
         return view("notes.index")->with('notes', $notes);
 
     }
