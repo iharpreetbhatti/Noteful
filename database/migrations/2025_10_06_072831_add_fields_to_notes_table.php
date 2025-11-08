@@ -14,7 +14,7 @@ return new class extends Migration {
 
         Schema::table('notes', function (Blueprint $table) {
             $table->boolean('is_pinned')->default(false);
-            $table->string('bg_color')->default('bg-white');
+            $table->enum('color', ['white', 'emerald', 'amber', 'violet', 'rose', 'orange', 'blue', 'pink',])->default('white');
             $table->unsignedBigInteger('user_id')->after('id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
@@ -26,7 +26,7 @@ return new class extends Migration {
     public function down(): void
     {
         Schema::table('notes', function (Blueprint $table) {
-            $table->dropColumn(['is_pinned', 'bg_color']);
+            $table->dropColumn(['is_pinned', 'color']);
             $table->dropForeign(['user_id']);
             $table->dropColumn('user_id');
         });
