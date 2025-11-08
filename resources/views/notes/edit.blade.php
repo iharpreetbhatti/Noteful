@@ -1,5 +1,6 @@
 <x-layout>
-  <div class="mx-auto mb-4 p-8 rounded-lg md:w-3xl bg-white">
+  <div
+    class="mx-auto mb-4 p-8 rounded-xl md:w-3xl {{ $note->color === 'white' ? 'bg-white' : 'bg-' . $note->color . '-50' }}">
     <form action="{{ route('notes.update', $note->id) }}" method="POST">
       @csrf
       @method('PUT')

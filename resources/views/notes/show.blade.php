@@ -1,5 +1,6 @@
 <x-layout>
-  <div class="mx-auto mb-4 p-8 rounded-lg md:w-3xl">
+  <div
+    class="mx-auto mb-4 p-8 rounded-xl md:w-3xl {{ $note->color === 'white' ? 'bg-white' : 'bg-' . $note->color . '-50' }}">
     <h2 class="text-2xl font-bold my-4">{{ $note->title }}</h2>
     <p class="text-gray-800 mb-4">{{ $note->description }}</p>
     @can('update', $note)
