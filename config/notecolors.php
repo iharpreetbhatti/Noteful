@@ -2,7 +2,6 @@
 
 return [
   'white',
-  'slate',
   'emerald',
   'amber',
   'violet',
