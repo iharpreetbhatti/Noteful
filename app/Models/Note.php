@@ -13,7 +13,7 @@ class Note extends Model
         'title',
         'description',
         'is_pinned',
-        'bg_color',
+        'color',
         'user_id',
     ];
 
