@@ -7,7 +7,8 @@
       <div class="flex items-center gap-4">
         <x-button-link :url="route('notes.edit', $note->id)" text="Edit Note" icon="fa-solid fa-pen-to-square"
           bgColor="bg-black hover:bg-gray-800" textColor="text-white" />
-        <form action="{{ route('notes.destroy', $note->id) }}" method="POST" class="inline">
+        <form action="{{ route('notes.destroy', $note->id) }}" method="POST" class="inline"
+          onsubmit="return confirm('Are you sure you want to delete this note?')">
           @csrf
           @method('DELETE')
           <button type="submit"
